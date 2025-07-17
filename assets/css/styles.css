@@ -1,0 +1,231 @@
+:root {
+  --bg-color-light: #fff;
+  --bg-color-dark: hsl(255, 50%, 10%);
+  --text-color-light: rgb(255, 255, 255);
+  --text-color-dark: rgb(0, 0, 0);
+  --typewriterSpeed: 5s;
+  --typewriterCharacters: 100;
+  --theme--transaction: 0.5s;
+  --opacity-0: 0;
+  --opacity-1: 1;
+
+  --bg-color: var(--bg-color-light);
+  --text-color: var(--text-color-dark);
+  --opacity-00: var(--opacity-0);
+}
+
+.darkmode {
+  --bg-color-light: #fff;
+  --bg-color-dark: hsl(255, 50%, 10%);
+  --text-color-light: rgb(255, 255, 255);
+  --text-color-dark: rgb(0, 0, 0);
+
+  --bg-color: var(--bg-color-dark);
+  --text-color: var(--bg-color-light);
+}
+
+/* Background */
+body {
+  transition-duration: 0.5s;
+  margin: 0;
+  font-family: "Source Sans Pro", sans-serif;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  background: var(--bg-color);
+}
+
+/* TypeWritter */
+h1 {
+  color: var(--text-color);
+  font-size: clamp(1rem, 3vw + 1rem, 4rem);
+  position: relative;
+  font-family: "Source Code Pro", monospace;
+  position: relative;
+  width: max-content;
+}
+
+h1::before,
+h1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+h1::before {
+  transition-duration: 0.2s;
+  background: var(--bg-color);
+  animation: typewriter var(--typewriterSpeed)
+    steps(var(--typewriterCharacters)) 1s forwards;
+}
+
+h1::after {
+  transition-duration: 0.2s;
+  width: 0.125em;
+  background: var(--text-color);
+  animation: typewriter var(--typewriterSpeed)
+      steps(var(--typewriterCharacters)) 1s forwards,
+    blink 750ms steps(var(--typewriterCharacters)) infinite;
+}
+
+/* Welcome To My Website text */
+h2 {
+  color: var(--text-color);
+  font-size: 2rem;
+  font-weight: 400;
+  opacity: 0;
+  transform: translateY(3rem);
+  animation: fadeInUp 2s ease calc(var(--typewriterSpeed) + 2s) forwards;
+}
+
+/* KeyFrames */
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes blink {
+  to {
+    background: transparent;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.menu {
+ position: fixed;
+  top: 1rem;
+  left: 1rem;
+  opacity: 0;
+  fill: var(--text-color);
+  z-index: 1;
+  background:none;
+}
+.menu:hover{
+  fill: #803bff;
+}
+
+.dark-mode-toggle {
+  position: absolute;
+  z-index: 100;
+  top: 1em;
+  right: 1em;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  padding: 4px; 
+  width: 30px;
+  height: 30px; 
+}
+.moon {
+  position: absolute;
+  z-index: 100;
+  top: 1em;
+  right: 1em;
+  /* pointer-events: none; */
+}
+
+.sun{
+  position: absolute;
+  z-index: 100;
+  top: 1em;
+  right: 1em;
+  opacity: 0;
+  fill: #fff;
+}
+.darkmode .moon {
+  opacity: 0;
+}
+.darkmode .sun {
+  opacity: 1;
+}
+
+.dark-mode-toggle:hover > .moon {
+  fill:rgb(140, 0, 255);
+}
+.dark-mode-toggle:hover > .sun {
+  fill: rgb(140, 0, 255);
+}
+
+/* Social Media */
+.twitter{
+  fill: #00acee;
+}
+.youtube{
+  fill: #ff0000;
+}
+.twitch{
+  fill: #6441a5;
+}
+.github{
+  fill: var(--text-color);
+}
+.discord {
+  fill: #5865F2;
+}
+.reddit{
+  fill: #ff4500;
+}
+
+/* Social Media:hover */
+.twitter:hover{
+  fill: #006e99;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+.youtube:hover{
+  fill: #AF0000;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+.twitch:hover {
+  fill: #3c2763;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+.github:hover {
+  fill: #535353;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+.discord:hover {
+  fill: #2c3fb0;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+.reddit:hover {
+  fill: #cf3700;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+/* Social Media:Postion */
+h3 {
+  position: fixed;
+  right: 45%;
+  bottom: -20px;
+  padding: 0;
+  opacity: 0;
+  transform: translateY(3rem);
+  animation: fadeInUp 2s ease calc(var(--typewriterSpeed) + 2.5s) forwards;
+}
+
+h4 {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  font-weight: 200;
+  opacity: 0;
+  transform: translateY(3rem);
+  animation: fadeInUp 2s ease calc(var(--typewriterSpeed) + 2s) forwards;
+}
+
+  
